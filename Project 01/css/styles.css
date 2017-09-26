@@ -69,7 +69,6 @@ body {
   color: #fff;
   background-color: #36b55c;
   padding: 15px 0;
-  transition: .5s ;
 }
 #loadQuote:hover {
   background-color: rgba(255,255,255,.25);

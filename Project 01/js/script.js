@@ -9,8 +9,8 @@ var selectedQuote = {};
 
 //sets an automatic refresh of the quote and color change every 10 seconds if the button isn't clicked on page load (extra credit)
 function startIntervals() {
-    var quoteInterval = setInterval(printQuote, 3000);
-    var colorInterval = setInterval(randomColorsSetter, 3000);
+    var quoteInterval = setInterval(printQuote, 10000);
+    var colorInterval = setInterval(randomColorsSetter, 10000);
 }
 
 //uses random number * length to get proper range
@@ -75,7 +75,7 @@ function getUniqueQuote(selectedQuote) {
 function randomColorsSetter() {
     var colorString = "rgb(" + getColorNumber() + ", " + getColorNumber() + ", " + getColorNumber() + ")";
     document.body.style.backgroundColor = colorString;
-    document.getElementById("loadQuote").setAttribute("background-color", colorString);
+    document.getElementById("loadQuote").style.backgroundColor = colorString;
 }
 
 //start intervals if nothing is clicked
