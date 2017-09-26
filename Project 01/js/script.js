@@ -2,18 +2,16 @@
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 document.getElementById('loadQuote').addEventListener("click", randomColorsSetter, false);
-var quoteInterval;
-var colorInterval;
-//function to store the multiple things that need to be done in an interval
-function setBothIntervals() {
-    quoteInterval = setInterval(printQuote, 10000);
-    colorInterval = setInterval(randomColorsSetter, 10000);
-}
-//sets an automatic refresh of the quote and color change every 10 seconds if the button isn't clicked on page load (extra credit)
-setBothIntervals();
+
 //array to hold quotes that have been used so that all quotes will be seen before repeating (extra credit)
 var usedQuotes = [];
 var selectedQuote = {};
+
+//sets an automatic refresh of the quote and color change every 10 seconds if the button isn't clicked on page load (extra credit)
+function startIntervals() {
+    var quoteInterval = setInterval(printQuote, 3000);
+    var colorInterval = setInterval(randomColorsSetter, 3000);
+}
 
 //uses random number * length to get proper range
 function getRandomQuote() {
@@ -60,7 +58,7 @@ function printQuote() {
     //reset the intervals so that they don't immediately pick another quote
     clearInterval(quoteInterval);
     clearInterval(colorInterval);
-    setBothIntervals();
+    startIntervals();
 }
 
 //generate a random quote by trapping the quote generation in a loop until it is unique (extra credit)
@@ -79,3 +77,6 @@ function randomColorsSetter() {
     document.body.style.backgroundColor = colorString;
     document.getElementById("loadQuote").setAttribute("background-color", colorString);
 }
+
+//start intervals if nothing is clicked
+startIntervals();
